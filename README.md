@@ -29,4 +29,4 @@
 
 ##  Possibilité 2 : charger les données depuis le dump
 
-    Vous pouvez changer le dump `db_digipart_test_symfony.sql` qui ce trouve à la racine du projet.
+Vous pouvez changer le dump `db_digipart_test_symfony.sql` qui ce trouve à la racine du projet.
