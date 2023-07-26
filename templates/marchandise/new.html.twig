@@ -1,11 +1,15 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}New Marchandise{% endblock %}
+{% block title %}Nouvelle Marchandise{% endblock %}
 
 {% block body %}
-    <h1>Create new Marchandise</h1>
-
-    {{ include('marchandise/_form.html.twig') }}
-
-    <a href="{{ path('app_marchandise_index') }}">back to list</a>
+    <article class="pageAll">
+        <h1>Crée une nouvelle Marchandise</h1>
+        
+        {{ include('marchandise/_form.html.twig') }}
+        
+        <article class="boxLink">
+            <a class="btnLink" href="{{ path('marchandise_index') }}">Revenir à la liste</a>
+        </article>
+    </article>
 {% endblock %}

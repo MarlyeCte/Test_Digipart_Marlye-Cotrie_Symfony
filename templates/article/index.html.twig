@@ -1,43 +1,49 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Article index{% endblock %}
+{% block title %}Tout les Articles{% endblock %}
 
 {% block body %}
-    <h1>Article index</h1>
-
-    <table class="table">
-        <thead>
-            <tr>
-                <th>IdProduct</th>
-                <th>Reference</th>
-                <th>Description</th>
-                <th>PriceTaxIncl</th>
-                <th>PriceTaxExcl</th>
-                <th>Quantity</th>
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for article in articles %}
-            <tr>
-                <td>{{ article.idProduct }}</td>
-                <td>{{ article.reference }}</td>
-                <td>{{ article.description }}</td>
-                <td>{{ article.priceTaxIncl }}</td>
-                <td>{{ article.priceTaxExcl }}</td>
-                <td>{{ article.quantity }}</td>
-                <td>
-                    <a href="{{ path('article_show', {'idProduct': article.idProduct}) }}">show</a>
-                    <a href="{{ path('article_edit', {'idProduct': article.idProduct}) }}">edit</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="7">no records found</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
-
-    <a href="{{ path('article_new') }}">Create new</a>
+    <article class="pageAll">
+        <h1>Tout les Articles sont afficher ici</h1>
+        
+        <table class="viewAll">
+            <thead>
+                <tr>
+                    <th>IdProduct</th>
+                    <th>Reference</th>
+                    <th>Description</th>
+                    <th>PriceTaxIncl</th>
+                    <th>PriceTaxExcl</th>
+                    <th>Quantity</th>
+                    <th>Option</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for article in articles %}
+                <tr>
+                    <td>{{ article.idProduct }}</td>
+                    <td>{{ article.reference }}</td>
+                    <td>{{ article.description }}</td>
+                    <td>{{ article.priceTaxIncl }}</td>
+                    <td>{{ article.priceTaxExcl }}</td>
+                    <td>{{ article.quantity }}</td>
+                    <td>
+                        <article class="boxLink">
+                            <a class="btnLink" href="{{ path('article_show', {'idProduct': article.idProduct}) }}">Visualiser</a>
+                            <a class="btnLink" href="{{ path('article_edit', {'idProduct': article.idProduct}) }}">Modifier</a>
+                        </article>
+                    </td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="7">Aucun article ajouter</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+        
+        <article class="boxLink">
+            <a class="btnLink" href="{{ path('article_new') }}">Nouveau article</a>
+        </article>
+    </article>
 {% endblock %}

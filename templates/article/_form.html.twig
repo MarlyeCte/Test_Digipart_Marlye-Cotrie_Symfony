@@ -1,4 +1,39 @@
 {{ form_start(form) }}
-    {{ form_widget(form) }}
-    <button class="btn">{{ button_label|default('Save') }}</button>
+    <div class="containerInputAll">
+        <div class="inputStyle">
+            {{ form_row(form.reference, { label: ' Reference :'}) }}
+        </div>
+    </div>
+    
+    <div class="containerInputAll">
+        <div class="inputStyle">
+            {{ form_row(form.description, { label: ' Description :'}) }}
+        </div>
+    </div>
+
+    <div class="containerInputAll">
+        <div class="inputStyle">
+            {{ form_row(form.priceTaxIncl, { label: ' Prix Tax Inclue :'}) }}
+        </div>
+    </div>
+
+    <div class="containerInputAll">
+        <div class="inputStyle">
+            {{ form_row(form.priceTaxExcl, { label: ' Prix Tax Exclue :'}) }}
+        </div>
+    </div>
+
+    <div class="containerInputAll">
+        <div class="inputStyle">
+            {{ form_row(form.quantity, { label: ' Quantité :'}) }}
+        </div>
+    </div>
+
+    <div class="containerInputAll">
+        <div class="inputStyle">
+            {{ form_row(form.marchandise, { label: ' Marchandise :'}) }}
+        </div>
+    </div>
+    
+    <button class="btn">{{ button_label|default('Crée un article') }}</button>
 {{ form_end(form) }}

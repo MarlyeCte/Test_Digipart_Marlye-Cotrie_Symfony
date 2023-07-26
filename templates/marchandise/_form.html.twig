@@ -1,4 +1,9 @@
 {{ form_start(form) }}
-    {{ form_widget(form) }}
-    <button class="btn">{{ button_label|default('Save') }}</button>
+    <div class="containerInputAll">
+        <div class="inputStyle">
+            {{ form_row(form.name, { label: 'Nom de la Marchandise :'}) }}
+        </div>
+    </div>
+    
+    <button class="btn">{{ button_label|default('Crée un article') }}</button>
 {{ form_end(form) }}

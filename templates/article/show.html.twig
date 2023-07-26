@@ -3,40 +3,44 @@
 {% block title %}Article{% endblock %}
 
 {% block body %}
-    <h1>Article</h1>
-
-    <table class="table">
-        <tbody>
-            <tr>
-                <th>IdProduct</th>
-                <td>{{ article.idProduct }}</td>
-            </tr>
-            <tr>
-                <th>Reference</th>
-                <td>{{ article.reference }}</td>
-            </tr>
-            <tr>
-                <th>Description</th>
-                <td>{{ article.description }}</td>
-            </tr>
-            <tr>
-                <th>PriceTaxIncl</th>
-                <td>{{ article.priceTaxIncl }}</td>
-            </tr>
-            <tr>
-                <th>PriceTaxExcl</th>
-                <td>{{ article.priceTaxExcl }}</td>
-            </tr>
-            <tr>
-                <th>Quantity</th>
-                <td>{{ article.quantity }}</td>
-            </tr>
-        </tbody>
-    </table>
-
-    <a href="{{ path('article_index') }}">back to list</a>
-
-    <a href="{{ path('article_edit', {'idProduct': article.idProduct}) }}">edit</a>
-
-    {{ include('article/_delete_form.html.twig') }}
+    <article class="pageAll">
+        <h1>Article</h1>
+        
+        <table class="viewAll">
+            <tbody>
+                <tr>
+                    <th>IdProduct</th>
+                    <td>{{ article.idProduct }}</td>
+                </tr>
+                <tr>
+                    <th>Reference</th>
+                    <td>{{ article.reference }}</td>
+                </tr>
+                <tr>
+                    <th>Description</th>
+                    <td>{{ article.description }}</td>
+                </tr>
+                <tr>
+                    <th>PriceTaxIncl</th>
+                    <td>{{ article.priceTaxIncl }}</td>
+                </tr>
+                <tr>
+                    <th>PriceTaxExcl</th>
+                    <td>{{ article.priceTaxExcl }}</td>
+                </tr>
+                <tr>
+                    <th>Quantity</th>
+                    <td>{{ article.quantity }}</td>
+                </tr>
+            </tbody>
+        </table>
+        
+        <article class="boxLink">
+            <a class="btnLink" href="{{ path('article_index') }}">Revenir à la liste</a>
+            
+            <a class="btnLink" href="{{ path('article_edit', {'idProduct': article.idProduct}) }}">Modifier</a>
+        </article>
+        
+        {{ include('article/_delete_form.html.twig') }}
+    </article>
 {% endblock %}

@@ -3,33 +3,39 @@
 {% block title %}Marchandise index{% endblock %}
 
 {% block body %}
-    <h1>Marchandise index</h1>
-
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Name</th>
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for marchandise in marchandises %}
-            <tr>
-                <td>{{ marchandise.id }}</td>
-                <td>{{ marchandise.name }}</td>
-                <td>
-                    <a href="{{ path('app_marchandise_show', {'id': marchandise.id}) }}">show</a>
-                    <a href="{{ path('app_marchandise_edit', {'id': marchandise.id}) }}">edit</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="3">no records found</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
-
-    <a href="{{ path('app_marchandise_new') }}">Create new</a>
+    <article class="pageAll">
+        <h1>Marchandise index</h1>
+        
+        <table class="viewAll">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>Option</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for marchandise in marchandises %}
+                <tr>
+                    <td>{{ marchandise.id }}</td>
+                    <td>{{ marchandise.name }}</td>
+                    <td>
+                        <article class="boxLink">
+                            <a class="btnLink" href="{{ path('marchandise_show', {'id': marchandise.id}) }}">Visualiser</a>
+                            <a class="btnLink" href="{{ path('marchandise_edit', {'id': marchandise.id}) }}">Modifier</a>
+                        </article>
+                    </td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="3">Aucune marchandise ajouter</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+        
+        <article class="boxLink">
+            <a class="btnLink" href="{{ path('marchandise_new') }}">Nouvelle marchandise</a>
+        </article>
+    </article>
 {% endblock %}

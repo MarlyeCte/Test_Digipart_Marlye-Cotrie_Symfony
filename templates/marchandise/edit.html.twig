@@ -1,13 +1,16 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Edit Marchandise{% endblock %}
+{% block title %}Modifier la Marchandise{% endblock %}
 
 {% block body %}
-    <h1>Edit Marchandise</h1>
-
-    {{ include('marchandise/_form.html.twig', {'button_label': 'Update'}) }}
-
-    <a href="{{ path('app_marchandise_index') }}">back to list</a>
-
-    {{ include('marchandise/_delete_form.html.twig') }}
+    <article class="pageAll">
+        <h1>Vous pouvez modifier la Marchandise</h1>
+        
+        {{ include('marchandise/_form.html.twig', {'button_label': 'Mettre à jour'}) }}
+        
+        <article class="boxLink">
+            {{ include('marchandise/_delete_form.html.twig') }}
+            <a class="btnLink" href="{{ path('marchandise_index') }}">Revenir à la liste</a>
+        </article>
+    </article>
 {% endblock %}

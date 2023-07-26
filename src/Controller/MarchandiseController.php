@@ -14,7 +14,7 @@ use Symfony\Component\Routing\Annotation\Route;
 #[Route('/marchandise')]
 class MarchandiseController extends AbstractController
 {
-    #[Route('/', name: 'app_marchandise_index', methods: ['GET'])]
+    #[Route('/', name: 'marchandise_index', methods: ['GET'])]
     public function index(MarchandiseRepository $marchandiseRepository): Response
     {
         return $this->render('marchandise/index.html.twig', [
@@ -22,7 +22,7 @@ class MarchandiseController extends AbstractController
         ]);
     }
 
-    #[Route('/new', name: 'app_marchandise_new', methods: ['GET', 'POST'])]
+    #[Route('/new', name: 'marchandise_new', methods: ['GET', 'POST'])]
     public function new(Request $request, EntityManagerInterface $entityManager): Response
     {
         $marchandise = new Marchandise();
@@ -33,7 +33,7 @@ class MarchandiseController extends AbstractController
             $entityManager->persist($marchandise);
             $entityManager->flush();
 
-            return $this->redirectToRoute('app_marchandise_index', [], Response::HTTP_SEE_OTHER);
+            return $this->redirectToRoute('marchandise_index', [], Response::HTTP_SEE_OTHER);
         }
 
         return $this->renderForm('marchandise/new.html.twig', [
@@ -42,7 +42,7 @@ class MarchandiseController extends AbstractController
         ]);
     }
 
-    #[Route('/{id}', name: 'app_marchandise_show', methods: ['GET'])]
+    #[Route('/{id}', name: 'marchandise_show', methods: ['GET'])]
     public function show(Marchandise $marchandise): Response
     {
         return $this->render('marchandise/show.html.twig', [
@@ -50,7 +50,7 @@ class MarchandiseController extends AbstractController
         ]);
     }
 
-    #[Route('/{id}/edit', name: 'app_marchandise_edit', methods: ['GET', 'POST'])]
+    #[Route('/{id}/edit', name: 'marchandise_edit', methods: ['GET', 'POST'])]
     public function edit(Request $request, Marchandise $marchandise, EntityManagerInterface $entityManager): Response
     {
         $form = $this->createForm(MarchandiseType::class, $marchandise);
@@ -59,7 +59,7 @@ class MarchandiseController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager->flush();
 
-            return $this->redirectToRoute('app_marchandise_index', [], Response::HTTP_SEE_OTHER);
+            return $this->redirectToRoute('marchandise_index', [], Response::HTTP_SEE_OTHER);
         }
 
         return $this->renderForm('marchandise/edit.html.twig', [
@@ -68,7 +68,7 @@ class MarchandiseController extends AbstractController
         ]);
     }
 
-    #[Route('/{id}', name: 'app_marchandise_delete', methods: ['POST'])]
+    #[Route('/{id}', name: 'marchandise_delete', methods: ['POST'])]
     public function delete(Request $request, Marchandise $marchandise, EntityManagerInterface $entityManager): Response
     {
         if ($this->isCsrfTokenValid('delete'.$marchandise->getId(), $request->request->get('_token'))) {
@@ -76,6 +76,6 @@ class MarchandiseController extends AbstractController
             $entityManager->flush();
         }
 
-        return $this->redirectToRoute('app_marchandise_index', [], Response::HTTP_SEE_OTHER);
+        return $this->redirectToRoute('marchandise_index', [], Response::HTTP_SEE_OTHER);
     }
 }
